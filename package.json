@@ -1,0 +1,17 @@
+{
+  "name": "feaston-javascript",
+  "version": "0.0.1",
+  "description": "A few Basic JavaScript utilities.",
+  "main": "attr.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Hargeraves",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0"
+  },
+  "dependencies": {}
+}
