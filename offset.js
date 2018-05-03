@@ -13,7 +13,7 @@ export default function offset(element) {
   let offsetLeft = 0;
   let offsetTop = 0;
 
-  if (element.offsetParent) {
+  if (element && element.offsetParent) {
     offsetLeft = element.offsetLeft;
     offsetTop = element.offsetTop;
   }

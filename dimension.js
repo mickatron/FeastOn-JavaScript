@@ -22,15 +22,15 @@ import css from './css';
 export default function dimension(element, type, margins = false, scrollbars = false) {
   let display;
   // if hidden display the item so we can get a measurement.
-  if (element.selector !== (window || document)) {
-    display = element.style.display;
-    if (display === 'none') element.style.display = 'block';
+  if (element !== (window || document)) {
+    display = css(element, 'display');
+    if (display === 'none') css(element, 'display', 'block');
   }
   let measurement = 0;
   let mt = 0;
   let mb = 0;
   if (margins) {
-    mt = type === 'height' ? css(element,'marginTop') : css(element, 'marginLeft');
+    mt = type === 'height' ? css(element, 'marginTop') : css(element, 'marginLeft');
     mb = type === 'height' ? css(element, 'marginBottom') : css(element, 'marginRight');
     measurement = parseInt(mt, 10) + parseInt(mb, 10);
   }
@@ -42,8 +42,8 @@ export default function dimension(element, type, margins = false, scrollbars = f
     measurement += type === 'height' ? element.offsetHeight : element.offsetWidth;
   }
   // if element was hidden hide it again now we have a measurement.
-  if (element.selector !== (window || document) && display === 'none') {
-    element.style.display = 'none';
+  if (element !== (window || document) && display === 'none') {
+    css(element, 'display', 'none');
   }
   return measurement;
 }

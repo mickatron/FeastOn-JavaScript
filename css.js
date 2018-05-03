@@ -15,7 +15,7 @@ export default function css(element, prop, value) {
     Object.keys(prop).forEach((each) => {
       element.css(each, prop[each]);
     });
-  } else if (!value) {
+  } else if (element && !value) {
     // get the style
     let typeStr = prop;
     let lastIndex = 0;
